@@ -45,7 +45,7 @@ for gw in dataframes.values():
 
     gw_num += 1
 
-print(player_dfs['Anthony Gordon']['xG'].iloc[-1])
+
 
 
 
