@@ -14,7 +14,6 @@ async def main():
         fpl = FPL(session)
         players = await fpl.get_players()
 
-        # Prepare the data for the CSV
         player_data = []
         for player in players:
             player_name = f"{player.first_name} {player.second_name}"
@@ -22,11 +21,11 @@ async def main():
             now_cost = player.now_cost
             player_data.append({'Player': player_name, 'Position': element_type, 'Cost': now_cost})
 
-        # Write the data to a CSV
+        # write to csv
         with open('player_data.csv', mode='w', newline='') as file:
             writer = csv.DictWriter(file, fieldnames=['Player', 'Position', 'Cost'])
-            writer.writeheader()  # Write column headers
-            writer.writerows(player_data)  # Write player data
+            writer.writeheader()
+            writer.writerows(player_data)  # write player data
 
 
 asyncio.run(main())
